@@ -28,7 +28,14 @@ if (isDev) {
 ipcMain.on('notify', (_, message) => {
     new Notification({ title: "Tada Notification", body: message, }).show();
 })
-app.whenReady().then(() => {
+
+ipcMain.on('appStatus', (_, status) => {
+    checkApplicationMode().
+    console.log(status)
+})
+
+app.whenReady().then((e) => {
+
     console.log("hello");
     createWindow();
 })

@@ -3,7 +3,6 @@ const { ipcRenderer, contextBridge } = require('electron');
 contextBridge.exposeInMainWorld('electron', {
     notificationApi: {
         sendNotification(message) {
-            console.log(message);
             ipcRenderer.send('notify', message);
         }
     },
@@ -12,5 +11,11 @@ contextBridge.exposeInMainWorld('electron', {
     },
     filesApi: {
 
+    },
+    applicationMode: {
+        checkApplicationMode() {
+            ipcRenderer.send("appStatus", navigator.onLine ? 'onLine' : 'offLine');
+            console.log(navigator.onLine ? 'online' : 'offline');
+        }
     }
 })
