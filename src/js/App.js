@@ -2,6 +2,11 @@ import React from 'react';
 
 export default function App() {
     return (
-        <h1>Hello this is app component</h1>
+        <div>
+            <h1>Hello this is app component</h1>
+            <button onClick={() => {
+                electron.notificationApi.sendNotification("tada...")
+            }}>notification</button>
+        </div>
     )
 }
