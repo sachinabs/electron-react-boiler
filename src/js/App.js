@@ -6,11 +6,14 @@ export default function App() {
     const appStatus = navigator.onLine ? true : false;
     return (
         <div>
-            <h1>Hello this is app component</h1>
-            {appStatus ? <h1> yep</h1> : <h1>Nope</h1>}
-            <button onClick={() => {
-                electron.notificationApi.sendNotification("tada...")
-            }}>notification</button>
+            <center>
+                <h1>Atre Health tec </h1>
+                <h4></h4>
+                {appStatus ? <h1> You are Online. 📩</h1> : <h1>Check the Internet connection. 📶</h1>}
+                <button onClick={() => {
+                    electron.notificationApi.sendNotification("Hy this is system notification")
+                }}>notification</button>
+            </center>
 
         </div>
     )
